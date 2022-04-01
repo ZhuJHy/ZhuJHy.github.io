@@ -10,7 +10,7 @@
   <id>http://zhujhy.github.io/</id>
   
   <author>
-    <name>�Ի�</name>
+    <name>辉辉</name>
     
   </author>
   
@@ -37,6 +37,19 @@
     
     
     <category term="web" scheme="http://zhujhy.github.io/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>paper</title>
+    <link href="http://zhujhy.github.io/2022/0401undefined.html"/>
+    <id>http://zhujhy.github.io/2022/0401undefined.html</id>
+    <published>2022-04-01T03:34:27.000Z</published>
+    <updated>2022-04-01T03:34:27.524Z</updated>
+    
+    
+    
+    
     
   </entry>
   
