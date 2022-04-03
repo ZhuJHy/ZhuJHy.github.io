@@ -6,7 +6,7 @@
   <link href="http://zhujhy.github.io/atom.xml" rel="self"/>
   
   <link href="http://zhujhy.github.io/"/>
-  <updated>2022-03-31T06:24:48.201Z</updated>
+  <updated>1985-10-26T08:15:00.000Z</updated>
   <id>http://zhujhy.github.io/</id>
   
   <author>
@@ -15,43 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>最快博客</title>
-    <link href="http://zhujhy.github.io/2022/0408undefined.html"/>
-    <id>http://zhujhy.github.io/2022/0408undefined.html</id>
-    <published>2022-04-07T16:00:00.000Z</published>
-    <updated>2022-03-31T06:24:48.201Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;需要的编辑软件&lt;/p&gt;
-&lt;p&gt;·个人博客&lt;br&gt;#图片&lt;br&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    
-    <category term="web" scheme="http://zhujhy.github.io/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>paper</title>
-    <link href="http://zhujhy.github.io/2022/0401undefined.html"/>
-    <id>http://zhujhy.github.io/2022/0401undefined.html</id>
-    <published>2022-04-01T03:34:27.000Z</published>
-    <updated>2022-04-01T03:34:27.524Z</updated>
-    
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -66,6 +29,29 @@
         
         
     <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>本站说明</title>
+    <link href="http://zhujhy.github.io/2022/0301undefined.html"/>
+    <id>http://zhujhy.github.io/2022/0301undefined.html</id>
+    <published>2022-03-01T03:34:27.000Z</published>
+    <updated>2022-04-03T03:26:24.895Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre&gt;&lt;code&gt;本站只用于学习参考，如有错误请即使指出，大家一起进步一起成长。
+&lt;/code&gt;&lt;/pre&gt;
+</summary>
         
       
     
