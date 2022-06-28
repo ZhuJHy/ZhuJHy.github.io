@@ -6,7 +6,7 @@
   <link href="http://zhujhy.github.io/atom.xml" rel="self"/>
   
   <link href="http://zhujhy.github.io/"/>
-  <updated>2022-06-28T07:12:27.419Z</updated>
+  <updated>2022-06-28T07:21:46.718Z</updated>
   <id>http://zhujhy.github.io/</id>
   
   <author>
@@ -17,27 +17,27 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>包装类</title>
     <link href="http://zhujhy.github.io/2022/0628undefined.html"/>
     <id>http://zhujhy.github.io/2022/0628undefined.html</id>
-    <published>2022-06-28T07:12:34.533Z</published>
-    <updated>2022-06-28T07:12:27.419Z</updated>
+    <published>2022-06-28T06:06:00.000Z</published>
+    <updated>2022-06-28T07:21:46.718Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;-–&lt;/p&gt;
-&lt;p&gt;title: 包装类&lt;/p&gt;
-&lt;p&gt;date: 2022-06-28 14:06&lt;/p&gt;
-&lt;p&gt;swiper: true # 将改文章放入轮播图中&lt;/p&gt;
-&lt;p&gt;swiperImg: ‘/medias/1.jpg’ #</summary>
+    <summary type="html">&lt;h2 id=&quot;包装类&quot;&gt;&lt;a href=&quot;#包装类&quot; class=&quot;headerlink&quot; title=&quot;包装类&quot;&gt;&lt;/a&gt;包装类&lt;/h2&gt;&lt;h3 id=&quot;基本类型&quot;&gt;&lt;a href=&quot;#基本类型&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
+    <category term="后端" scheme="http://zhujhy.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java基础" scheme="http://zhujhy.github.io/tags/Java%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
