@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>标签 | huihui</title>
+  <title>Java异常 | huihui</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -572,74 +572,629 @@
 </header>
         <!-- 内容区域 -->
         
-<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-<div class="bg-light-floor-tags" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
-
-<div class="tags-header" style="background-image:url('https://pic2.zhimg.com/80/v2-bf6c555e7c61a57ba4a1fd95a9a32975_1440w.jpg')">
-    <div class="tags-header-title">
-        tags
-    </div>
-    <div class="tags-header-desc">
+ <!-- prismjs 代码高亮 -->
+ 
     
-        <span class="title" id="tags-header-desc"></span>
-        <script>
-  function typedFn() {
-    const el = '#tags-header-desc';
-    const type = 'tag';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
+    <link href="/js/prism/prism-line-numbers.css" rel="stylesheet">
+    
+        <link href="/js/prism/prism.min.css" rel="stylesheet">
+    
+
+    <style>
+        pre[class*="language-"] {
+            overflow-y: hidden;
+        }
+        .line-numbers .line-numbers-rows {
+            border: none;
+        }
+    </style>
+  
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('/medias/1.jpg')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        Java异常
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2022-06-24 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-detail-header_category">
+              后端
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 2k |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 7分钟 |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
+    
+  </div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+
+
+<div class="row justify-position" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        <h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>之前我们介绍的基本类型、类、接口、枚举都是在表示和操作数据，操作的过程中可能有很多出错的情况，出错的原因可能是多方面的，有的是不可控的内部原因，比如内存不够了、磁盘满了，有的是不可控的外部原因，比如网络连接有问题，更多的可能是程序的编程错误，比如引用变量未初始化就直接调用实例方法。 </p>
+<p>java使用异常机制统一来处理，内容较多</p>
+<p><strong>NullPointerException (空指针异常)</strong> </p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class ExceptionTest &#123;
+    public static void main(String[] args) &#123;
+        String s &#x3D; null;
+        s.indexOf(&quot;a&quot;);
+        System.out.println(&quot;end&quot;);
+    &#125;
+&#125;
+变量s没有初始化就调用其实例方法indexOf，
+Exception in thread &quot;main&quot; java.lang.NullPointerException
+    at ExceptionTest.main(ExceptionTest.java:5)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>NumberFormatException (数字格式异常)</strong> </p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class ExceptionTest &#123;
+    public static void main(String[] args) &#123;
+        if(args.length&lt;1)&#123;
+            System.out.println(&quot;请输入数字&quot;);
+            return;
+        &#125;
+        int num &#x3D; Integer.parseInt(args[0]);
+        System.out.println(num);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>所有的类都可用捕获”是指使用try/catch关键字 </p>
+<h3 id="异常类"><a href="#异常类" class="headerlink" title="异常类"></a>异常类</h3><h3 id="Throwable"><a href="#Throwable" class="headerlink" title="Throwable"></a>Throwable</h3><p>NullPointerException和NumberFormatE</p>
+<pre class="line-numbers language-none"><code class="language-none">xception都是异常类，所有异常类都有一个共同的父类Throwable，它有4个public构造方法：
+
+1. public Throwable()
+2. public Throwable(String message)
+3. public Throwable(String message, Throwable cause)
+4. public Throwable(Throwable cause) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>有两个主要参数，一个是message，表示异常消息，另一个是cause，表示触发该异常的其他异常。异常可以形成一个异常链，上层的异常由底层异常触发，cause表示底层异常。</p>
+<p>Throwable还有一个public方法用于设置cause：</p>
+<pre class="line-numbers language-none"><code class="language-none">Throwable initCause(Throwable cause)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Throwable的某些子类没有带cause参数的构造方法，就可以通过这个方法来设置，这个方法最多只能被调用一次。</p>
+<p>所有构造方法中都有一句重要的函数调用：</p>
+<pre class="line-numbers language-none"><code class="language-none">fillInStackTrace();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>它会将异常栈信息保存下来，这是我们能看到异常栈的关键。</p>
+<p>Throwable有一些常用方法用于获取异常信息：</p>
+<pre class="line-numbers language-none"><code class="language-none">void printStackTrace()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>打印异常栈信息到标准错误输出流，它还有两个重载的方法：</p>
+<pre class="line-numbers language-none"><code class="language-none">void printStackTrace(PrintStream s)
+void printStackTrace(PrintWriter s)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>打印栈信息到指定的流，关于PrintStream和PrintWriter我们后续文章介绍。</p>
+<pre class="line-numbers language-none"><code class="language-none">String getMessage()
+Throwable getCause()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>获取设置的异常message和cause</p>
+<pre class="line-numbers language-none"><code class="language-none">StackTraceElement[] getStackTrace()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>获取异常栈每一层的信息，每个StackTraceElement包括文件名、类名、函数名、行号等信息。</p>
+<h3 id="异常类体系"><a href="#异常类体系" class="headerlink" title="异常类体系"></a><strong>异常类体系</strong></h3><p>以Throwable为根，Java API中定义了非常多的异常类，表示各种类型的异常，部分类示意如下：</p>
+<p><img src="https://images2015.cnblogs.com/blog/924211/201607/924211-20160707195250233-1530995915.jpg" class="lazyload placeholder" data-srcset="https://images2015.cnblogs.com/blog/924211/201607/924211-20160707195250233-1530995915.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="img"> </p>
+<h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a><strong>自定义异常</strong></h3><p>除了Java API中定义的异常类，我们也可以自己定义异常类，一般通过继承Exception或者它的某个子类，如果父类是RuntimeException或它的某个子类，则自定义异常也是unchecked exception，如果是Exception或Exception的其他子类，则自定义异常是checked exception。</p>
+<p>我们通过继承Exception来定义一个异常，代码如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class AppException extends Exception &#123;
+    public AppException() &#123;
+        super();
+    &#125;
+
+    public AppException(String message,
+            Throwable cause) &#123;
+        super(message, cause);
+    &#125;
+
+    public AppException(String message) &#123;
+        super(message);
+    &#125;
+
+    public AppException(Throwable cause) &#123;
+        super(cause);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>和很多其他异常类一样，我们没有定义额外的属性和代码，只是继承了Exception，定义了构造方法并调用了父类的构造方法。</p>
+<h3 id="throws"><a href="#throws" class="headerlink" title="throws"></a><strong>throws</strong></h3><p>异常机制中，还有一个和throw很像的关键字throws，用于声明一个方法可能抛出的异常，语法如下所示：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public void test() throws AppException, SQLException, NumberFormatException &#123;
+    &#x2F;&#x2F;....
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="finally"><a href="#finally" class="headerlink" title="finally"></a><strong>finally</strong></h3><p>异常机制中还有一个重要的部分，就是finally, catch后面可以跟finally语句，语法如下所示：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">try&#123;
+    &#x2F;&#x2F;可能抛出异常
+&#125;catch(Exception e)&#123;
+    &#x2F;&#x2F;捕获异常
+&#125;finally&#123;
+    &#x2F;&#x2F;不管有无异常都执行
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Checked对比Unchecked-Exception"><a href="#Checked对比Unchecked-Exception" class="headerlink" title="Checked对比Unchecked Exception"></a><strong>Checked对比Unchecked Exception</strong></h3><p>以上，可以看出RuntimeException(unchecked exception)和checked exception的区别，checked exception必须出现在throws语句中，调用者必须处理，Java编译器会强制这一点，而RuntimeException则没有这个要求。 </p>
+<p>Java被广泛应用于服务器程序中，不能因为一个逻辑错误就使程序退出。所以，目前一种更被认同的观点是，Java中的这个区分是没有太大意义的，可以统一使用RuntimeException即unchcked exception来代替。 </p>
+<p>这个观点的基本理由是，无论是checked还是unchecked异常，无论是否出现在throws声明中，我们都应该在合适的地方以适当的方式进行处理，而不是只为了满足编译器的要求，盲目处理异常，既然都要进行处理异常，checked exception的强制声明和处理就显得啰嗦，尤其是在调用层次比较深的情况下。 </p>
+<h3 id="异常处理的目标"><a href="#异常处理的目标" class="headerlink" title="异常处理的目标"></a><strong>异常处理的目标</strong></h3><p>异常大概可以分为三个来源：用户、程序员、第三方。用户是指用户的输入有问题，程序员是指编程错误，第三方泛指其他情况如I/O错误、网络、数据库、第三方服务等。每种异常都应该进行适当的处理。</p>
+<p>处理的目标可以分为报告和恢复。恢复是指通过程序自动解决问题。报告的最终对象可能是用户，即程序使用者，也可能是系统运维人员或程序员。报告的目的也是为了恢复，但这个恢复经常需要人的参与。</p>
+<p>对用户，如果用户输入不对，可能提示用户具体哪里输入不对，如果是编程错误，可能提示用户系统错误、建议联系客服，如果是第三方连接问题，可能提示用户稍后重试。</p>
+<p>对系统运维人员或程序员，他们一般不关心用户输入错误，而关注编程错误或第三方错误，对于这些错误，需要报告尽量完整的细节，包括异常链、异常栈等，以便尽快定位和解决问题。</p>
+<p>对于用户输入或编程错误，一般都是难以通过程序自动解决的，第三方错误则可能可以，甚至很多时候，程序都不应该假定第三方是可靠的，应该有容错机制。比如说，某个第三方服务连接不上(比如发短信)，可能的容错机制是，换另一个提供同样功能的第三方试试，还可能是，间隔一段时间进行重试，在多次失败之后再报告错误。</p>
+<h3 id="异常处理的一般逻辑"><a href="#异常处理的一般逻辑" class="headerlink" title="异常处理的一般逻辑"></a><strong>异常处理的一般逻辑</strong></h3><p>如果自己知道怎么处理异常，就进行处理，如果可以通过程序自动解决，就自动解决，如果异常可以被自己解决，就不需要再向上报告。</p>
+<p>如果自己不能完全解决，就应该向上报告。如果自己有额外信息可以提供，有助于分析和解决问题，就应该提供，可以以原异常为cause重新抛出一个异常。</p>
+<p>总有一层代码需要为异常负责，可能是知道如何处理该异常的代码，可能是面对用户的代码，也可能是主程序。如果异常不能自动解决，对于用户，应该根据异常信息提供用户能理解和对用户有帮助的信息，对运维和程序员，则应该输出详细的异常链和异常栈到日志。</p>
+<p>这个逻辑与在公司中处理问题的逻辑是类似的，每个级别都有自己应该解决的问题，自己能处理的自己处理，不能处理的就应该报告上级，把下级告诉他的，和他自己知道的，一并告诉上级，最终，公司老板必须要为所有问题负责。每个级别既不应该掩盖问题，也不应该逃避责任</p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/Java%E5%9F%BA%E7%A1%80/" class="">
+              Java基础
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>辉辉</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2022/0624undefined.html" target="_blank" title="Java异常">http://zhujhy.github.io/2022/0624undefined.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/1.jpg" class="lazyload placeholder" data-srcset="/medias/1.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+    </div>
+    <a href="/2022/0625undefined.html" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">枚举</div>
+      </div>
+      
+      <!-- <div class="content">
+        枚举枚举的定义枚举类的使用enum（它与class、interface关键字地位相同）关键字定义。一个java源文件中只
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/1.jpg" class="lazyload placeholder" data-srcset="/medias/1.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
+    </div>
+    <a href="/2022/0405undefined.html" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">Mysql基础</div>
+      </div>
+      <!-- <div class="content">
+        Mysql基础介绍数据库分为关系型数据库和非关系型数据库（重点学习redis）
+MySQL是一种关系型数据库管理系统，关
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="/medias/zfb.jpg" class="lazyload placeholder" data-srcset="/medias/zfb.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="/medias/wx.jpg" class="lazyload placeholder" data-srcset="/medias/wx.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
 </script>
     
-    </div>
-    <div class="mask-box"></div>
-</div>
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
 
 
-<div id="tags" class="container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/Mysql/" title="Mysql: 1">
-                    <span class="tag-content"
-                        title="Mysql" style="background-color: #FEF9E7;">Mysql
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Java%E5%9F%BA%E7%A1%80/" title="Java基础: 3">
-                    <span class="tag-content"
-                        title="Java基础" style="background-color: #FEF9E7;">Java基础
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法: 1">
-                    <span class="tag-content"
-                        title="算法" style="background-color: #F9EBEA;">算法
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-            </div>
-        </div>
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <div id="gitment-container"></div>
+
+    
+  </div>
+
+<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <!-- 文章详情页右侧目录 -->
+
+  <div class="toc-aside">
+    <div class="toc-main">
+      <div class="toc-aside-title">
+        <i class="fas fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+        
+          <div class="toc-open-close">本文目录</div>
+        
+      </div>
+      <div class="toc-content">
+        <div class="toc"></div>
+      </div>
     </div>
+  </div>
+
+  <!-- 手机端目录按钮 -->
+  <div id="toc-mobile-btn">
+    <i class="fas fa-list-ul" aria-hidden="true"></i>
+  </div>
+
+
+<script>
+  function closeToc(init) {
+    $(".toc-aside").css({'width': 0, 'padding': 0, 'transition': init ?  'noe' : 'width 0.3s' });
+    $(".toc-content").css({'width': 0});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+    $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+  };
+  function openToc() {
+    $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+    $(".toc-aside").css({'width': '300px', 'padding': '0 10px', 'transition': 'width 0.3s'});
+    $(".toc-content").css({'width': '300px'});
+    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+  }
+  function openBtnClickFn () {
+    let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+    let open = eval('' || 'true');
+    openOrCloseBtn.click(function() {
+      if (open) {
+        closeToc();
+        open = false;
+      } else {
+        openToc();
+        open = true;
+      }
+    });
+  };
+  openBtnClickFn();
+  initCloseTocWidth(true);
+
+  function initCloseTocWidth(init) {
+    if (window.innerWidth >= 992) {
+      let isClose = false;
+      isClose && closeToc(init)
+    }
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    $(".toc-aside").css({'transition': 'no'});
+  })
+  document.addEventListener('pjax:complete', function () {
+    openBtnClickFn();
+  })
+  
+</script>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
 </div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
 
       </main>
     </div>
