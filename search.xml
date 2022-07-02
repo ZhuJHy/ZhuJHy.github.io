@@ -29,6 +29,56 @@
     
     
     <entry>
+      <title>插入排序</title>
+      <link href="/2022/0629undefined.html"/>
+      <url>/2022/0629undefined.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。 </p><p><img src="C:\Users\辉辉\Desktop\笔记\img\charu.jpg" class="lazyload placeholder" data-srcset="C:\Users\辉辉\Desktop\笔记\img\charu.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="charu"></p><p>定义两层循环，第一次循环为大循环，第二次循环是来进行比较，并且来调换位置。注意的是在第二次循环时的 j 的值，每次循环的时候，都是和前面排序好的进行比较，</p><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static void main(String[] args) &#123;    int[] arr &#x3D; &#123;21,231,89,27,483,7,49&#125;;    insert(arr);    System.out.println(Arrays.toString(arr));&#125;public static void insert(int[] arr)&#123;    int temp &#x3D; 0;    for (int i &#x3D; 0; i &lt; arr.length; i++) &#123;        for (int j &#x3D; 0 ;j &lt; i;j++) &#123;&#x2F;&#x2F;循环的时候是小于i的所在值            if (arr[j] &lt; arr[j + 1]) &#123;                &#x2F;&#x2F;比较并且交换                temp &#x3D; arr[j];                arr[j] &#x3D; arr[j+1];                arr[j+1] &#x3D; temp;            &#125;        &#125;        System.out.println(Arrays.toString(arr));    &#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>选择排序</title>
+      <link href="/2022/0629undefined.html"/>
+      <url>/2022/0629undefined.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序<img src="C:\Users\辉辉\Desktop\笔记\img\xuanze.jpg" class="lazyload placeholder" data-srcset="C:\Users\辉辉\Desktop\笔记\img\xuanze.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="xuanze"></h2><p>选择排序(Selection-sort)是一种简单直观的排序算法。它的工作原理：首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。 </p><p>选择排序就是说，首先定义一个下标，指定一个第一个数，定义两层循环，第一层循环，为大规模循环，每次的 i 指针都加 1 并且指向所定义的下标，</p><p>定义第二次循环，每次循环都是将最小的指针替换为所定义的指针。</p><p>public static void main(String[] args) {<br>    int[] arr = {21,231,89,27,483,7,49};<br>    selectSort(arr);<br>    System.out.println(Arrays.toString(arr));<br>}</p><p>public static void selectSort(int[] arr){</p><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static void main(String[] args) &#123;    int[] arr &#x3D; &#123;21,231,89,27,483,7,49&#125;;    selectSort(arr);    System.out.println(Arrays.toString(arr));&#125;public static void selectSort(int[] arr)&#123;int index &#x3D; 0;int temp &#x3D; 0;for (int i &#x3D; 0; i &lt; arr.length; i++) &#123;    &#x2F;&#x2F;定义一个指针来随机所指一个数    index &#x3D; i;    for (int j &#x3D; i; j &lt; arr.length; j++) &#123;        if (arr[j] &lt; arr[index])&#123;&#x2F;&#x2F;在循环的过程中进行比较将最小的值指向所定的指针            index &#x3D; j;        &#125;    &#125;    temp &#x3D; arr[i];    arr[i] &#x3D; arr[index];    arr[index] &#x3D; temp;    System.out.println(Arrays.toString(arr));&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>包装类</title>
       <link href="/2022/0628undefined.html"/>
       <url>/2022/0628undefined.html</url>
