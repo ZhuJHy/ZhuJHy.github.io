@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title></title>
-      <link href="/2022/0704undefined.html"/>
-      <url>/2022/0704undefined.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p><img src="source%5Cimg%5Cerfen.jpg" class="lazyload placeholder" data-srcset="source%5Cimg%5Cerfen.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg"></p><pre class="line-numbers language-java" data-language="java"><code class="language-java">public static void main(String[] args) &#123;        int[] arr &#x3D; &#123;19, 41, 50, 93, 135, 210, 386&#125;;        erFen(arr, 41);        System.out.println(Arrays.toString(arr));    &#125;    public static void erFen(int[] arr, int t) &#123;        &#x2F;&#x2F;首先二分查找是在一个有序数组中进行的        &#x2F;&#x2F;每次都是找到数组的没一半来锁定所查找的值        int left &#x3D; 0;&#x2F;&#x2F;定义一个左指针        int right &#x3D; arr.length;&#x2F;&#x2F;定义右指针        while (left &lt; right) &#123;            int middle &#x3D; (left + right) &#x2F; 2;&#x2F;&#x2F;中间值在随着左右指针移动而改变这样才能缩小范围            if (arr[middle] &#x3D;&#x3D; t) &#123;                System.out.println(&quot;下标为&quot; + middle);                return;            &#125;            &#x2F;&#x2F;当t 大于middle时，说明t在中间值的右边，然后把做指针指先中间并++，++的作用不至于出现死循环            if (arr[middle] &lt; t) &#123;                left &#x3D; middle;                left++;            &#125;            &#x2F;&#x2F;当t 小于middle时，说明t在中间值的左边，然后把做指针指先中间并--，--的作用不至于出现死循环            if (arr[middle] &gt; t) &#123;                right &#x3D; middle;                right--;            &#125;        &#125;        System.out.println(&quot;没有找到&quot;);    &#125;    &#x2F;&#x2F;使用递归    &#x2F;&#x2F;递归同理，区别就是将循环使用到递归中，将左右指针传入到递归中    public static void erFenSelect1(int[] arr, int t1, int l, int r) &#123;        int left &#x3D; l;        int right &#x3D; r;        int middle &#x3D; (left + right) &#x2F; 2;        if (arr[middle] &#x3D;&#x3D; t1) &#123;            System.out.println(middle);            return;        &#125;        if (arr[middle] &gt; t1) &#123;            right &#x3D; middle;            right--;        &#125;        if (arr[middle] &lt; t1) &#123;            left &#x3D; middle;            left++;        &#125;        if (left &gt;&#x3D; right) &#123;            System.out.println(&quot;没有找到&quot;);            return;        &#125;        erFenSelect1(arr, t1, left, right);    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>快速排序</title>
       <link href="/2022/0629undefined.html"/>
       <url>/2022/0629undefined.html</url>
@@ -109,6 +96,31 @@
         <tags>
             
             <tag> Java基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>二分排序</title>
+      <link href="/2022/0628undefined.html"/>
+      <url>/2022/0628undefined.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p><img src="source%5Cimg%5Cerfen.jpg" class="lazyload placeholder" data-srcset="source%5Cimg%5Cerfen.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg"></p><pre class="line-numbers language-java" data-language="java"><code class="language-java">public static void main(String[] args) &#123;        int[] arr &#x3D; &#123;19, 41, 50, 93, 135, 210, 386&#125;;        erFen(arr, 41);        System.out.println(Arrays.toString(arr));    &#125;    public static void erFen(int[] arr, int t) &#123;        &#x2F;&#x2F;首先二分查找是在一个有序数组中进行的        &#x2F;&#x2F;每次都是找到数组的没一半来锁定所查找的值        int left &#x3D; 0;&#x2F;&#x2F;定义一个左指针        int right &#x3D; arr.length;&#x2F;&#x2F;定义右指针        while (left &lt; right) &#123;            int middle &#x3D; (left + right) &#x2F; 2;&#x2F;&#x2F;中间值在随着左右指针移动而改变这样才能缩小范围            if (arr[middle] &#x3D;&#x3D; t) &#123;                System.out.println(&quot;下标为&quot; + middle);                return;            &#125;            &#x2F;&#x2F;当t 大于middle时，说明t在中间值的右边，然后把做指针指先中间并++，++的作用不至于出现死循环            if (arr[middle] &lt; t) &#123;                left &#x3D; middle;                left++;            &#125;            &#x2F;&#x2F;当t 小于middle时，说明t在中间值的左边，然后把做指针指先中间并--，--的作用不至于出现死循环            if (arr[middle] &gt; t) &#123;                right &#x3D; middle;                right--;            &#125;        &#125;        System.out.println(&quot;没有找到&quot;);    &#125;    &#x2F;&#x2F;使用递归    &#x2F;&#x2F;递归同理，区别就是将循环使用到递归中，将左右指针传入到递归中    public static void erFenSelect1(int[] arr, int t1, int l, int r) &#123;        int left &#x3D; l;        int right &#x3D; r;        int middle &#x3D; (left + right) &#x2F; 2;        if (arr[middle] &#x3D;&#x3D; t1) &#123;            System.out.println(middle);            return;        &#125;        if (arr[middle] &gt; t1) &#123;            right &#x3D; middle;            right--;        &#125;        if (arr[middle] &lt; t1) &#123;            left &#x3D; middle;            left++;        &#125;        if (left &gt;&#x3D; right) &#123;            System.out.println(&quot;没有找到&quot;);            return;        &#125;        erFenSelect1(arr, t1, left, right);    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
             
         </tags>
       

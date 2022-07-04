@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>包装类 | huihui</title>
+  <title>二分排序 | huihui</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -607,7 +607,7 @@
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        包装类
+        二分排序
       </span>
     </div>
     
@@ -632,11 +632,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 1.6k |
+            <i class="fas fa-file-text-o"></i> 字数统计: 399 |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> 阅读时长: 6分钟 |
+            <i class="fas fa-clock"></i> 阅读时长: 1分钟 |
           </span>
   
           
@@ -663,175 +663,71 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h2 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h2><h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><p>Java有八种基本类型，每种基本类型都有一个对应的包装类。 </p>
-<p>Java中，基本类型和对应的包装类如下表所示：</p>
-<table>
-<thead>
-<tr>
-<th>基本类型</th>
-<th>包装类</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>boolean</td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>byte</td>
-<td>Byte</td>
-</tr>
-<tr>
-<td>short</td>
-<td>Short</td>
-</tr>
-<tr>
-<td>int</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>long</td>
-<td>Long</td>
-</tr>
-<tr>
-<td>float</td>
-<td>Float</td>
-</tr>
-<tr>
-<td>double</td>
-<td>Double</td>
-</tr>
-<tr>
-<td>char</td>
-<td>Character</td>
-</tr>
-</tbody></table>
-<p>包装类也都很好记，除了Integer和Character外，其他类名称与基本类型基本一样，只是首字母大写。</p>
-<h3 id="基本类型和包装类"><a href="#基本类型和包装类" class="headerlink" title="基本类型和包装类"></a><strong>基本类型和包装类</strong></h3><p><strong>Boolean</strong></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">boolean b1 &#x3D; false;
-Boolean bObj &#x3D; Boolean.valueOf(b1);
-boolean b2 &#x3D; bObj.booleanValue();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+        <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p><img src="source%5Cimg%5Cerfen.jpg" class="lazyload placeholder" data-srcset="source%5Cimg%5Cerfen.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg"></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public static void main(String[] args) &#123;
+        int[] arr &#x3D; &#123;19, 41, 50, 93, 135, 210, 386&#125;;
+        erFen(arr, 41);
+        System.out.println(Arrays.toString(arr));
+    &#125;
 
-<p><strong>Byte</strong></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">byte b1 &#x3D; 123;
-Byte byteObj &#x3D; Byte.valueOf(b1);
-byte b2 &#x3D; byteObj.byteValue();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+    public static void erFen(int[] arr, int t) &#123;
 
-<p><strong>Short</strong></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">short s1 &#x3D; 12345;
-Short sObj &#x3D; Short.valueOf(s1);
-short s2 &#x3D; sObj.shortValue();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+        &#x2F;&#x2F;首先二分查找是在一个有序数组中进行的
+        &#x2F;&#x2F;每次都是找到数组的没一半来锁定所查找的值
+        int left &#x3D; 0;&#x2F;&#x2F;定义一个左指针
+        int right &#x3D; arr.length;&#x2F;&#x2F;定义右指针
+        while (left &lt; right) &#123;
+            int middle &#x3D; (left + right) &#x2F; 2;&#x2F;&#x2F;中间值在随着左右指针移动而改变这样才能缩小范围
+            if (arr[middle] &#x3D;&#x3D; t) &#123;
+                System.out.println(&quot;下标为&quot; + middle);
+                return;
+            &#125;
+            &#x2F;&#x2F;当t 大于middle时，说明t在中间值的右边，然后把做指针指先中间并++，++的作用不至于出现死循环
+            if (arr[middle] &lt; t) &#123;
+                left &#x3D; middle;
+                left++;
+            &#125;
+            &#x2F;&#x2F;当t 小于middle时，说明t在中间值的左边，然后把做指针指先中间并--，--的作用不至于出现死循环
+            if (arr[middle] &gt; t) &#123;
+                right &#x3D; middle;
+                right--;
+            &#125;
+        &#125;
+        System.out.println(&quot;没有找到&quot;);
+    &#125;
 
-<p><strong>Integer</strong></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">int i1 &#x3D; 12345;
-Integer iObj &#x3D; Integer.valueOf(i1);
-int i2 &#x3D; iObj.intValue();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+    &#x2F;&#x2F;使用递归
+    &#x2F;&#x2F;递归同理，区别就是将循环使用到递归中，将左右指针传入到递归中
+    public static void erFenSelect1(int[] arr, int t1, int l, int r) &#123;
 
-<p><strong>Long</strong>Java</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">long l1 &#x3D; 12345;
-Long lObj &#x3D; Long.valueOf(l1);
-long l2 &#x3D; lObj.longValue();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>Float</strong></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">float f1 &#x3D; 123.45f;
-Float fObj &#x3D; Float.valueOf(f1);
-float f2 &#x3D; fObj.floatValue();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>Double</strong></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">double d1 &#x3D; 123.45;
-Double dObj &#x3D; Double.valueOf(d1);
-double d2 &#x3D; dObj.doubleValue(); <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>Character</strong></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">char c1 &#x3D; &#39;A&#39;;
-Character cObj &#x3D; Character.valueOf(c1);
-char c2 &#x3D; cObj.charValue(); <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Java1-5后的技术"><a href="#Java1-5后的技术" class="headerlink" title="Java1.5后的技术"></a>Java1.5后的技术</h3><p>java 1.5以后引入了自动装箱和拆箱技术，可以直接将基本类型赋值给引用类型，反之亦可，如下代码所示：</p>
-<pre class="line-numbers language-none"><code class="language-none">Integer a &#x3D; 100;
-int b &#x3D; a;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>自动装箱/拆箱是Java编译器提供的能力，背后，它会替换为调用对应的valueOf()/xxxValue()，比如说，上面的代码会被Java编译器替换为：</p>
-<pre class="line-numbers language-none"><code class="language-none">Integer a &#x3D; Integer.valueOf(100);
-int b &#x3D; a.intValue();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>每种包装类也都有构造方法，可以通过new创建，比如说：</p>
-<pre class="line-numbers language-none"><code class="language-none">Integer a &#x3D; new Integer(100);
-Boolean b &#x3D; new Boolean(true);
-Double d &#x3D; new Double(12.345);
-Character c &#x3D; new Character(&#39;马&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<p>所有的包装类都重写了Object类</p>
-<p>在equals中是用于判断当前对象和参数传入的对象是否相同，Object类的默认实现是比较地址，</p>
-<p>Float有一个静态方法floatToIntBits()，将float的二进制表示看做int。需要注意的是，只有两个float的二进制表示完全一样的时候，equals才会返回true。 </p>
-<p>Double的equals方法与Float类似，它有一个静态方法doubleToLongBits，将double的二进制表示看做long，然后再按long比较。 </p>
-<h3 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode"></a>hashCode</h3><p>包装类都重写了hashCode，根据包装的基本类型值计算hashCode，对于Byte, Short, Integer, Character，hashCode就是其内部值 </p>
-<p>hashCode 返回一个对象的哈希值，哈希值是一个int类型的数，由对象中一般不变的属性映射得来，用于快速对对象进行区分、分组等。一个对象的哈希值不能变，相同对象的哈希值必须一样。 不同对象的哈希值一般应不同，但这不是必须的，可以有不同对象但哈希值相同的情况。 </p>
-<p>hashCode和equals方法联系密切，对两个对象，如果equals方法返回true，则hashCode也必须一样。反之不要求，equal返回false时，hashCode可以一样，也可以不一样，但应该尽量不一样。hashCode的默认实现一般是将对象的内存地址转换为整数，子类重写equals时，也必须重写hashCode。之所以有这个规定，是因为Java API中很多类依赖于这个行为，尤其是集合中的一些类。</p>
-<p>  1.如果两个对象相同，那么它们的hashCode值一定要相同；<br>  2.如果两个对象的hashCode相同，它们并不一定相同<br>  （这里说的对象相同指的是用eqauls方法比较）。<br>    如不按要求去做了，会发现相同的对象可以出现在Set集合中，<br>    同时，增加新元素的效率会大大下降。<br>  3.equals()相等的两个对象，hashcode()一定相等；<br>  equals()不相等的两个对象，却并不能证明他们的hashcode()不相等。</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">换句话说，equals()方法不相等的两个对象，hashcode()有可能相等
-（我的理解是由于哈希码在生成的时候产生冲突造成的）。
-反过来，hashcode()不等，一定能推出equals()也不等；
-hashcode()相等，equals()可能相等，也可能不等。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>包装类都重写了hashCode，根据包装的基本类型值计算hashCode，对于Byte, Short, Integer, Character，hashCode就是其内部值， </p>
-<p><strong>Comparable</strong></p>
-<p>每个包装类也都实现了Java API中的Comparable接口，Comparable接口代码如下：</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface Comparable&lt;T&gt; &#123;
-    public int compareTo(T o);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="包装类和String"><a href="#包装类和String" class="headerlink" title="包装类和String"></a><strong>包装类和String</strong></h3><p>除了toString方法外，包装类还有一些其他与String相关的方法。</p>
-<p>除了Character外，每个包装类都有一个静态的valueOf(String)方法，根据字符串表示返回包装类对象，如：</p>
-<pre class="line-numbers language-none"><code class="language-none">Boolean b &#x3D; Boolean.valueOf(&quot;true&quot;);
-Float f &#x3D; Float.valueOf(&quot;123.45f&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>也都有一个静态的parseXXX(String)方法，根据字符串表示返回基本类型值，如：</p>
-<pre class="line-numbers language-none"><code class="language-none">boolean b &#x3D; Boolean.parseBoolean(&quot;true&quot;);
-double d &#x3D; Double.parseDouble(&quot;123.45&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>都有一个静态的toString()方法，根据基本类型值返回字符串表示，如：</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">System.out.println(Boolean.toString(true));
-System.out.println(Double.toString(123.45));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="常用常量"><a href="#常用常量" class="headerlink" title="常用常量"></a><strong>常用常量</strong></h3><p>包装类中除了定义静态方法和实例方法外，还定义了一些静态变量。</p>
-<p>Boolean类型：</p>
-<pre class="line-numbers language-none"><code class="language-none">public static final Boolean TRUE &#x3D; new Boolean(true);
-public static final Boolean FALSE &#x3D; new Boolean(false);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>所有数值类型都定义了MAX_VALUE和MIN_VALUE，表示能表示的最大/最小值，比如，对Integer：</p>
-<pre class="line-numbers language-none"><code class="language-none">public static final int   MIN_VALUE &#x3D; 0x80000000;
-public static final int   MAX_VALUE &#x3D; 0x7fffffff;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>Float和Double还定义了一些特殊数值，比如正无穷、负无穷、非数值，如Double类：</p>
-<pre class="line-numbers language-none"><code class="language-none">public static final double POSITIVE_INFINITY &#x3D; 1.0 &#x2F; 0.0;
-public static final double NEGATIVE_INFINITY &#x3D; -1.0 &#x2F; 0.0;
-public static final double NaN &#x3D; 0.0d &#x2F; 0.0;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a><strong>Number</strong></h3><p>六种数值类型包装类有一个共同的父类Number，Number是一个抽象类，它定义了如下方法：</p>
-<pre class="line-numbers language-none"><code class="language-none">byte byteValue()
-short shortValue()                
-int intValue()
-long longValue()
-float floatValue()
-double doubleValue()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>以返回任意的基本数值类型。</p>
-<h3 id="不可变性"><a href="#不可变性" class="headerlink" title="不可变性**"></a>不可变性**</h3><p>包装类都是不可变类，所谓不可变就是，实例对象一旦创建，就没有办法修改了。这是通过如下方式强制实现的：</p>
-<ul>
-<li>所有包装类都声明为了final，不能被继承</li>
-<li>内部基本类型值是私有的，且声明为了final</li>
-<li>没有定义setter方法</li>
-</ul>
-<p>为什么要定义为不可变类呢？不可变使得程序可以更为简单安全，因为不用操心数据被意外改写的可能了，可以安全的共享数据，尤其是在多线程的环境下</p>
-
+        int left &#x3D; l;
+        int right &#x3D; r;
+        int middle &#x3D; (left + right) &#x2F; 2;
+        if (arr[middle] &#x3D;&#x3D; t1) &#123;
+            System.out.println(middle);
+            return;
+        &#125;
+        if (arr[middle] &gt; t1) &#123;
+            right &#x3D; middle;
+            right--;
+        &#125;
+        if (arr[middle] &lt; t1) &#123;
+            left &#x3D; middle;
+            left++;
+        &#125;
+        if (left &gt;&#x3D; right) &#123;
+            System.out.println(&quot;没有找到&quot;);
+            return;
+        &#125;
+        erFenSelect1(arr, t1, left, right);
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/Java%E5%9F%BA%E7%A1%80/" class="">
-              Java基础
+            <a href="/tags/%E7%AE%97%E6%B3%95/" class="">
+              算法
             </a>
           
         </div>
@@ -845,7 +741,7 @@ double doubleValue()<span aria-hidden="true" class="line-numbers-rows"><span></s
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2022/0628undefined.html" target="_blank" title="包装类">http://zhujhy.github.io/2022/0628undefined.html</a>
+    <a href="/2022/0628undefined.html" target="_blank" title="二分排序">http://zhujhy.github.io/2022/0628undefined.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -869,15 +765,15 @@ double doubleValue()<span aria-hidden="true" class="line-numbers-rows"><span></s
       background-position: center center;">
       <img class="lazyload lazyload placeholder" src="/medias/1.jpg" class="lazyload placeholder" data-srcset="/medias/1.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
     </div>
-    <a href="/2022/0629undefined.html" class="post-nav-link">
+    <a href="/2022/0628undefined.html" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">选择排序</div>
+        <div class="title-text">包装类</div>
       </div>
       
       <!-- <div class="content">
-        选择排序
-选择排序(Selection-sort)是一种简单直观的排序算法。它的工作原理：首先在未排序序列中找到最小（大
+        包装类基本类型Java有八种基本类型，每种基本类型都有一个对应的包装类。 
+Java中，基本类型和对应的包装类如下表所示
       </div> -->
     </a>
   </div>
