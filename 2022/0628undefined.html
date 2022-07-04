@@ -632,11 +632,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 399 |
+            <i class="fas fa-file-text-o"></i> 字数统计: 627 |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> 阅读时长: 1分钟 |
+            <i class="fas fa-clock"></i> 阅读时长: 2分钟 |
           </span>
   
           
@@ -663,7 +663,12 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p><img src="source%5Cimg%5Cerfen.jpg" class="lazyload placeholder" data-srcset="source%5Cimg%5Cerfen.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg"></p>
+        <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>二分查找（binary search），也称折半搜索，是一种在 <strong>有序数组</strong> 中 <strong>查找某一特定元素</strong> 的搜索算法。搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束；如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。</p>
+<ul>
+<li><strong>时间复杂度</strong>:折半搜索每次把搜索区域减少一半，时间复杂度为O(log n)。（n代表集合中元素的个数）</li>
+<li><strong>空间复杂度</strong>: O(1)。虽以递归形式定义，但是尾递归，可改写为循环。</li>
+</ul>
+<p><img src="source%5Cimg%5Cerfen.jpg" class="lazyload placeholder" data-srcset="source%5Cimg%5Cerfen.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">public static void main(String[] args) &#123;
         int[] arr &#x3D; &#123;19, 41, 50, 93, 135, 210, 386&#125;;
         erFen(arr, 41);
